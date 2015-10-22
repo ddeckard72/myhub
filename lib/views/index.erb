@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lots of Issues</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+      <h1>Issues</h1>
+
+      <p>Here are our GitHub related issues:</p>
+      <ul class="issue-list">
+          <% stuff.each do |stuff| %>
+              <li>
+                  <%= stuff.issue %> - <%= stuff.state %>
+                  <form action="/issue/reopen/<%= stuff.id %>" method="post">
+                      <input type="submit" value="Re-open">
+                  </form>
+                  <form action="/issue/close/<%= stuff.id %>" method="post">
+                      <input type="submit" value="Close">
+                  </form>
+              </li>
+          <% end %>
+      </ul>
+  </body>
+</html>
